@@ -234,6 +234,7 @@ PLATFORMS
 
 DEPENDENCIES
   bootsnap (>= 1.4.2)
+  bundler (~> 2.2)
   byebug
   capybara (>= 2.15)
   guard-livereload (~> 2.5)
