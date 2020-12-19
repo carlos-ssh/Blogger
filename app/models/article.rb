@@ -5,14 +5,11 @@ class Article < ActiveRecord::Base
   has_many :tag_list
   has_many :tags
 
-  # association code here...
+  has_attached_file :image
+  validates_attachment_content_type :image, :content_type => ["image/jpg", "image/jpeg", "image/png"]
 
   validates_associated :tag_list
   before_save :save_tags
-
-  # validation code here...
-
-  # other methods shown in original code...
 
   def tag_list
     caller[0][/`([^']*)'/, 1] == 'block in validate' ? @tag_list : tags.map(&:name).join(", ")
@@ -27,9 +24,9 @@ class Article < ActiveRecord::Base
 
   private
 
-    def save_tags
-      self.tags = Tag.transaction do
-        @tag_list.each(&:save)
-      end
+  def save_tags
+    self.tags = Tag.transaction do
+      @tag_list.each(&:save)
     end
+  end
 end

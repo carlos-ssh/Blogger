@@ -4,6 +4,9 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 ruby '2.7.2'
 gem 'bundler', '~> 2.2'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
+# this Gem depends from imagemagick
+gem "paperclip"
+
 gem 'rails', '~> 6.0.3', '>= 6.0.3.4'
 # Use postgresql as the database for Active Record
 gem 'pg', '>= 0.18', '< 2.0'
@@ -21,7 +24,6 @@ gem 'jbuilder', '~> 2.7'
 # gem 'redis', '~> 4.0'
 # Use Active Model has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
-
 
 
 # Use Active Storage variant
